@@ -32,7 +32,6 @@ public class DemoController {
     }
 
 
-
     @DeleteMapping("remove/id/{stationid}")
     public void deleteStation(@PathVariable("stationid") final String stationid) {
         stationRepository.delete(stationid);
