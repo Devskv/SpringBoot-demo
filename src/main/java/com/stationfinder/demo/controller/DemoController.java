@@ -3,9 +3,7 @@ package com.stationfinder.demo.controller;
 import com.stationfinder.demo.domain.Station;
 import com.stationfinder.demo.domain.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,24 @@ public class DemoController {
       return stationRepository.findAll();
     }
 
+    @GetMapping(value = "/id/{stationid}")
+    public Station getStation(@PathVariable("stationid") final String stationid) {
+        return stationRepository.findOne(stationid);
+
+    }
+
+    @PostMapping(value = "/load")
+    public List<Station> addStation(@RequestBody final Station stations) {
+        stationRepository.save(stations);
+        return stationRepository.findAll();
+    }
+
+
+
+    @DeleteMapping("remove/id/{stationid}")
+    public void deleteStation(@PathVariable("stationid") final String stationid) {
+        stationRepository.delete(stationid);
+    }
 
 
 
