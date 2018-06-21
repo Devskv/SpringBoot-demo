@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'com.stationfinder'
-version = '0.0.1-SNAPSHOT'
+version = ''
 sourceCompatibility = 1.8
 
 repositories {
