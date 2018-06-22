@@ -20,20 +20,27 @@ public class DemoController {
     }
 
     @GetMapping(value = "/id/{stationid}")
-    public Station getStation(@PathVariable("stationid") final String stationid) {
+    public Station getStation(@PathVariable("stationid")  String stationid) {
         return stationRepository.findOne(stationid);
 
     }
 
     @PostMapping(value = "/load")
-    public List<Station> addStation(@RequestBody final Station stations) {
+    public List<Station> addStation(@RequestBody  Station stations) {
         stationRepository.save(stations);
         return stationRepository.findAll();
     }
 
+    @PutMapping(value = "/update/{stationid}")
+    public Station updateStation(@PathVariable("stationid")  String stationid, @RequestBody  Station station){
+        stationRepository.save(station);
+        return stationRepository.findOne(stationid);
+
+    }
+
 
     @DeleteMapping("remove/id/{stationid}")
-    public void deleteStation(@PathVariable("stationid") final String stationid) {
+    public void deleteStation(@PathVariable("stationid") String stationid) {
         stationRepository.delete(stationid);
     }
 
