@@ -1,0 +1,7 @@
+---
+applications:
+- name: SpringBoot-demo-dirvsk
+  path: build/libs/SpringBoot-demo.jar
+  domain: cfapps.io
+  memory: 1G
+  instances: 1
