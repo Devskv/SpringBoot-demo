@@ -1,3 +1,8 @@
+spring:
+  application:
+    name: SpringBoot-demo
+
+
 eureka:
   client:
     registerWithEureka: true
